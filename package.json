@@ -11,8 +11,12 @@
     "seed": "node /api/src/db/seed.js"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
     "concurrently": "^7.1.0",
-    "prettier": "^2.8.4"
+    "jest": "^29.5.0",
+    "prettier": "^2.8.4",
+    "vitest": "^0.31.0"
   },
   "dependencies": {
     "pg": "^8.10.0"

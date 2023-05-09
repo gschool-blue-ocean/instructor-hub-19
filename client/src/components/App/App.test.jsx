@@ -6,15 +6,16 @@ import { rest } from "msw";
 import { setupServer } from "msw/node";
 import App from "./App.jsx";
 
+//intercepts server requests to test them
 const server = setupServer();
 
 afterEach(() => {
-  cleanup();
+  cleanup();  //gets rid of mounted react components after test
   server.resetHandlers();
 });
 
 beforeAll(() => {
-  server.listen();
+  server.listen(); // listens for api requests and intercepts them to test 
 });
 
 afterAll(() => {
@@ -37,6 +38,7 @@ it("displays tasks from the api", async () => {
   await findByText("Mow the lawn");
 });
 
+
 it("deletes a task when clicked", async () => {
   server.use(
     rest.get("/api/tasks", (req, res, ctx) => {
@@ -46,6 +48,7 @@ it("deletes a task when clicked", async () => {
   const { findByText } = render(<App />);
   const spy = vi.fn();
 
+  //
   await findByText("Do the dishes");
   server.use(
     rest.delete("/api/tasks/3", (req, res, ctx) => {
