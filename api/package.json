@@ -15,10 +15,12 @@
     "vitest": "^0.29.2"
   },
   "dependencies": {
-    "nodemon":"2.0.22",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "nodemon": "2.0.22",
     "pg": "^8.10.0"
   }
 }

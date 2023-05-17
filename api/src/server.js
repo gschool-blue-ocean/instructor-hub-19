@@ -1,6 +1,7 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import pg from "pg";
+import jwt from 'jsonwebtokenn'
 
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL
@@ -11,6 +12,18 @@ const app = express();
 app.use(express.json());
 
 // app.use(cors())
+
+//User authentication
+// post request, as this will create jwt tokens 
+app.post('/login', (req,res)=> {
+
+  const uesername=req.body.uesername
+  const user = {name: username}
+  const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
+  res.json({ accessToken:accessToken })
+})
+
+
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
