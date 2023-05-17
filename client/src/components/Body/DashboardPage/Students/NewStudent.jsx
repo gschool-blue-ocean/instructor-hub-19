@@ -20,7 +20,7 @@ const NewStudent = (props) => {
     let email = document.getElementById('email');
     let gitHub = document.getElementById('gitHub');
     if (!name.value || !email.value || !gitHub.value) {
-      alert('All fields must contain information!');
+      // alert('All fields must contain information!');
       return;
     }
     let allValues = {};

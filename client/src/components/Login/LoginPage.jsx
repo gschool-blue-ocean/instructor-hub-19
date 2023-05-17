@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
-import "../../styles/Login.css";
+import React, { useState, useEffect } from 'react';
+import { useSignIn } from 'react-auth-kit';
+import '../../styles/Login.css';
+
 
 const LoginPage = ({ showReg, userAuth }) => {
-  const [errorLogin, setErrorLogin] = useState("");
+    const [ errorLogin, setErrorLogin ] = useState('');
+    const signIn = useSignIn();
 
   function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
